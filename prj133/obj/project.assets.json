@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net6.0-windows7.0": {
+    "net7.0-windows7.0": {
       "ExcelDataReader/3.6.0": {
         "type": "package",
         "compile": {
@@ -147,26 +147,26 @@
           "System.Text.Encoding.CodePages": "4.4.0"
         },
         "compile": {
-          "lib/net6.0/MySql.Data.dll": {
+          "lib/net7.0/MySql.Data.dll": {
             "related": ".xml"
           },
-          "lib/net6.0/ZstdNet.dll": {},
-          "lib/net6.0/comerr64.dll": {},
-          "lib/net6.0/gssapi64.dll": {},
-          "lib/net6.0/k5sprt64.dll": {},
-          "lib/net6.0/krb5_64.dll": {},
-          "lib/net6.0/krbcc64.dll": {}
+          "lib/net7.0/ZstdNet.dll": {},
+          "lib/net7.0/comerr64.dll": {},
+          "lib/net7.0/gssapi64.dll": {},
+          "lib/net7.0/k5sprt64.dll": {},
+          "lib/net7.0/krb5_64.dll": {},
+          "lib/net7.0/krbcc64.dll": {}
         },
         "runtime": {
-          "lib/net6.0/MySql.Data.dll": {
+          "lib/net7.0/MySql.Data.dll": {
             "related": ".xml"
           },
-          "lib/net6.0/ZstdNet.dll": {},
-          "lib/net6.0/comerr64.dll": {},
-          "lib/net6.0/gssapi64.dll": {},
-          "lib/net6.0/k5sprt64.dll": {},
-          "lib/net6.0/krb5_64.dll": {},
-          "lib/net6.0/krbcc64.dll": {}
+          "lib/net7.0/ZstdNet.dll": {},
+          "lib/net7.0/comerr64.dll": {},
+          "lib/net7.0/gssapi64.dll": {},
+          "lib/net7.0/k5sprt64.dll": {},
+          "lib/net7.0/krb5_64.dll": {},
+          "lib/net7.0/krbcc64.dll": {}
         }
       },
       "Portable.BouncyCastle/1.9.0": {
@@ -1598,7 +1598,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net6.0-windows7.0": [
+    "net7.0-windows7.0": [
       "ExcelDataReader >= 3.6.0",
       "ExcelDataReader.DataSet >= 3.6.0",
       "MySql.Data >= 8.0.32"
@@ -1621,15 +1621,15 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0-windows"
+        "net7.0-windows"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net6.0-windows7.0": {
-          "targetAlias": "net6.0-windows",
+        "net7.0-windows7.0": {
+          "targetAlias": "net7.0-windows",
           "projectReferences": {}
         }
       },
@@ -1640,8 +1640,8 @@
       }
     },
     "frameworks": {
-      "net6.0-windows7.0": {
-        "targetAlias": "net6.0-windows",
+      "net7.0-windows7.0": {
+        "targetAlias": "net7.0-windows",
         "dependencies": {
           "ExcelDataReader": {
             "target": "Package",

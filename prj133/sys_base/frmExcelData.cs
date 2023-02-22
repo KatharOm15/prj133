@@ -11,11 +11,15 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Globalization;
 using ExcelDataReader;
+using Microsoft.Office.Interop.Excel;
+
+
 
 namespace prj133.sys_base
 {
     public partial class frmExcelData : Form
     {
+        System.Data.DataTable dtf;
         public frmExcelData()
         {
             InitializeComponent();
@@ -23,87 +27,82 @@ namespace prj133.sys_base
         DataTableCollection tableCollection;
         private async void button1_Click(object sender, EventArgs e)
         {
-
-            /*OpenFileDialog fdlg = new OpenFileDialog();
-
-            fdlg.FileName = textBox1.Text;
-            fdlg.Filter = "Excel Sheet(*)|*|All Files(*.*)|*.*";
-            fdlg.FilterIndex = 1;
-            fdlg.RestoreDirectory = true;*/
-            using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "Excel Sheet(*)|*|All Files(*.*)|*.*" })
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if(openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                if (ofd.ShowDialog() == DialogResult.OK)
+                textBox1.Text= openFileDialog.FileName;
+            }
+            dataGridView1.DataSource= ImportExcelToDataTable(textBox1.Text);
+
+
+
+
+        }
+
+
+        public System.Data.DataTable ImportExcelToDataTable(string filePath)
+        {
+            System.Data.DataTable dataTable = new System.Data.DataTable();
+
+            // Create Excel Application object
+            Microsoft.Office.Interop.Excel.Application application = new Microsoft.Office.Interop.Excel.Application();
+
+            // Open Excel file
+            Workbook workbook = application.Workbooks.Open(filePath);
+
+            // Select the first sheet
+            Worksheet worksheet = workbook.Sheets[1];
+
+            // Get the range of cells with data
+            Microsoft.Office.Interop.Excel.Range range = worksheet.UsedRange;
+
+            // Loop through each row and column, and add the cell value to the DataTable
+            for (int row = 1; row <= range.Rows.Count; row++)
+            {
+                DataRow dataRow = dataTable.NewRow();
+
+                for (int column = 1; column <= range.Columns.Count; column++)
                 {
-                    textBox1.Text = ofd.FileName;
-                    using (var stream = File.Open(ofd.FileName, FileMode.Open, FileAccess.Read))
+                    if (row == 1)
                     {
-                         using (IExcelDataReader reader =  ExcelReaderFactory.CreateReader(stream))
-                        {
-                            DataSet result = reader.AsDataSet(new ExcelDataSetConfiguration()
-                            {
-                                ConfigureDataTable = (_) => new ExcelDataTableConfiguration()
-                                {
-                                    UseHeaderRow = true
-                                }
-                            });
-                            tableCollection = result.Tables;
-                            comboBox1.Items.Clear();
-                            foreach (DataTable table in tableCollection)
-                            {
-                                 comboBox1.Items.Add(table.TableName);
-                            }
-                        }
+                        // Add column headers to the DataTable
+                        dataTable.Columns.Add(range.Cells[row, column].Value.ToString());
+                    }
+                    else
+                    {
+                        // Add cell values to the DataTable
+                        dataRow[column - 1] = range.Cells[row, column].Value.ToString();
+                       // MessageBox.Show(range.Cells[row, column].Value.ToString());
                     }
                 }
 
+                if (row > 1)
+                {
+                    dataTable.Rows.Add(dataRow);
+                }
             }
-                
 
-            /*string[] s =File.ReadAllLines(textBox1.Text);
-           DataTable dt= new DataTable();
-           string[] s1 = s[0].Split(',');
-           int a=0;
-          for(int i = 0; i < s1.Length; i++)
-           {
-               dt.Columns.Add(new DataColumn(s1[i]));
-               a= dt.Columns.Count;
-           }
-           for (int i=1;i<s.Length;i++)
-           {
-               DataRow dr = dt.NewRow();
-               string[] temp1 = s[i].Split(',');
-               if (!s[i].Contains(','))
-               {
-                   for (int j = 0; j < a; j++)
-                   {
-
-                       dr[j] = temp1[j];
-                   }
-               }
-
-               else
-               {
-
-               }
-               dt.Rows.Add(dr);
-           }
-
-           dataGridView1.DataSource = dt; */
-
-
+            // Close Excel file
+            workbook.Close(false, Type.Missing, Type.Missing);
+            application.Quit();
+            dtf = dataTable;
+            return dataTable;
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            DataTable dt = tableCollection[comboBox1.SelectedItem.ToString()];
-            dataGridView1.DataSource = dt;
+            MySqlConnection cnn = new MySqlConnection("server=115.96.168.103;port=3306;user=prj133;password=prj133@automation;database=prj133automation");
+            cnn.Open();
+            for (int i = 1; i < 31; i++)
+            {
+                //MessageBox.Show(dtf.Rows[i][10].ToString()+" : "+i);
+                MySqlCommand cmd = new MySqlCommand("insert into candidatemaster (name,location,self_mobile,gender,caste,scholership,institute,stream,email,aadhar_no) values ('"+ dtf.Rows[i][2].ToString()+"','"+ dtf.Rows[i][1].ToString()+"','"+ dtf.Rows[i][3].ToString()+"','"+ dtf.Rows[i][6].ToString()+"','"+ dtf.Rows[i][7].ToString()+"','"+ dtf.Rows[i][8].ToString()+"','"+ dtf.Rows[i][11].ToString()+"','"+ dtf.Rows[i][10].ToString()+"','"+ dtf.Rows[i][4].ToString()+"','"+ dtf.Rows[i][9].ToString()+"')", cnn);
+                cmd.ExecuteNonQuery();
+            }
+            cnn.Close();
+            
+            
         }
-
-        /*private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            DataTable dt = tableCollection[textBox1.Text.ToString()];
-            dataGridView1.DataSource= dt;
-        }*/
     }
 }
 
