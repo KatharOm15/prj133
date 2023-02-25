@@ -19,7 +19,8 @@ namespace prj133.sys_base
 {
     public partial class frmExcelData : Form
     {
-        System.Data.DataTable dtf;
+        System.Data.DataTable dtf, temp;
+        MySqlDataAdapter da;
         public frmExcelData()
         {
             InitializeComponent();
@@ -93,12 +94,35 @@ namespace prj133.sys_base
         {
             MySqlConnection cnn = new MySqlConnection("server=115.96.168.103;port=3306;user=prj133;password=prj133@automation;database=prj133automation");
             cnn.Open();
-            for (int i = 1; i < 31; i++)
+            da = new MySqlDataAdapter("select aadhar_no from candidatemaster", cnn);
+            temp = new System.Data.DataTable();
+            da.Fill(temp); 
+            StringBuilder str= new StringBuilder();
+            for(int i=0; i<temp.Rows.Count;i++)
+            {
+                str.Append(',');
+                str.Append(temp.Rows[i][0].ToString());
+            }
+            string str2=str.ToString();
+            MessageBox.Show(str2);
+            for (int i = 1; i < dtf.Rows.Count; i++)
             {
                 //MessageBox.Show(dtf.Rows[i][10].ToString()+" : "+i);
-                MySqlCommand cmd = new MySqlCommand("insert into candidatemaster (name,location,self_mobile,gender,caste,scholership,institute,stream,email,aadhar_no) values ('"+ dtf.Rows[i][2].ToString()+"','"+ dtf.Rows[i][1].ToString()+"','"+ dtf.Rows[i][3].ToString()+"','"+ dtf.Rows[i][6].ToString()+"','"+ dtf.Rows[i][7].ToString()+"','"+ dtf.Rows[i][8].ToString()+"','"+ dtf.Rows[i][11].ToString()+"','"+ dtf.Rows[i][10].ToString()+"','"+ dtf.Rows[i][4].ToString()+"','"+ dtf.Rows[i][9].ToString()+"')", cnn);
-                cmd.ExecuteNonQuery();
+                
+                //MessageBox.Show(dtf.Rows[i][10].ToString()+" : "+i);
+
+
+                if (!str2.Contains(dtf.Rows[i][9].ToString()))
+                {
+
+                    MessageBox.Show(dtf.Rows[i][11].ToString()+":"+i);
+                    MySqlCommand cmd = new MySqlCommand("insert into candidatemaster (name,location,self_mobile,gender,caste,scholership,institute,stream,email,aadhar_no) values ('" + dtf.Rows[i][2].ToString() + "','" + dtf.Rows[i][1].ToString() + "','" + dtf.Rows[i][3].ToString() + "','" + dtf.Rows[i][6].ToString() + "','" + dtf.Rows[i][7].ToString() + "','" + dtf.Rows[i][8].ToString() + "','" + dtf.Rows[i][11].ToString() + "','" + dtf.Rows[i][10].ToString() + "','" + dtf.Rows[i][4].ToString() + "','" + dtf.Rows[i][9].ToString() + "')", cnn);
+                    cmd.ExecuteNonQuery();
+
+                }
+
             }
+            MessageBox.Show("fkjvsfkgjdsf");
             cnn.Close();
             
             
