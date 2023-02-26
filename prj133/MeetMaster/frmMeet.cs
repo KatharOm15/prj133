@@ -22,7 +22,7 @@ namespace prj133.MeetMaster
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("YOU HAVE SUCCESSFULLY JOIN THE MEETING....BSDK......!");
+           
         }
     }
 }
