@@ -38,3 +38,9 @@ C:\Users\Om\source\repos\prj133\prj133\obj\Debug\net7.0-windows\prj133.genruntim
 C:\Users\Om\source\repos\prj133\prj133\obj\Debug\net7.0-windows\ref\prj133.dll
 C:\Users\Om\source\repos\prj133\prj133\obj\Debug\net7.0-windows\Interop.Microsoft.Office.Interop.Excel.dll
 C:\Users\Om\source\repos\prj133\prj133\obj\Debug\net7.0-windows\prj133.csproj.ResolveComReference.cache
+C:\Users\Om\source\repos\prj133\prj133\bin\Debug\net7.0-windows\Google.Apis.dll
+C:\Users\Om\source\repos\prj133\prj133\bin\Debug\net7.0-windows\Google.Apis.Auth.PlatformServices.dll
+C:\Users\Om\source\repos\prj133\prj133\bin\Debug\net7.0-windows\Google.Apis.Auth.dll
+C:\Users\Om\source\repos\prj133\prj133\bin\Debug\net7.0-windows\Google.Apis.Core.dll
+C:\Users\Om\source\repos\prj133\prj133\bin\Debug\net7.0-windows\Newtonsoft.Json.dll
+C:\Users\Om\source\repos\prj133\prj133\obj\Debug\net7.0-windows\prj133.MeetMaster.frmMeet.resources

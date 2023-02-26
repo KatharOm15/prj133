@@ -48,6 +48,14 @@
               "target": "Package",
               "version": "[3.6.0, )"
             },
+            "Google.Apis": {
+              "target": "Package",
+              "version": "[1.60.0, )"
+            },
+            "Google.Apis.Auth": {
+              "target": "Package",
+              "version": "[1.60.0, )"
+            },
             "MySql.Data": {
               "target": "Package",
               "version": "[8.0.32, )"

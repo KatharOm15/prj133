@@ -24,6 +24,8 @@
   <ItemGroup>
     <PackageReference Include="ExcelDataReader" Version="3.6.0" />
     <PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
+    <PackageReference Include="Google.Apis" Version="1.60.0" />
+    <PackageReference Include="Google.Apis.Auth" Version="1.60.0" />
     <PackageReference Include="MySql.Data" Version="8.0.32" />
   </ItemGroup>
 

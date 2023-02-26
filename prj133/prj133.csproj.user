@@ -4,10 +4,13 @@
     <Compile Update="AdmissionMaster\frmNewAdmission.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="sys_base\frmExcelData.cs">
+    <Compile Update="ExcelMaster\frmExcelData.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="sys_base\frmStudentList.cs">
+    <Compile Update="MeetMaster\frmMeet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="StudentListMaster\frmStudentList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="sys_base\frmSystemDashboard.cs">
