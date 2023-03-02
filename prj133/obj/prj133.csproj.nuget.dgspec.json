@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Om\\source\\repos\\prj133\\prj133\\prj133.csproj": {}
+    "C:\\Users\\vynkt\\source\\repos\\prj133\\prj133\\prj133.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Om\\source\\repos\\prj133\\prj133\\prj133.csproj": {
+    "C:\\Users\\vynkt\\source\\repos\\prj133\\prj133\\prj133.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Om\\source\\repos\\prj133\\prj133\\prj133.csproj",
+        "projectUniqueName": "C:\\Users\\vynkt\\source\\repos\\prj133\\prj133\\prj133.csproj",
         "projectName": "prj133",
-        "projectPath": "C:\\Users\\Om\\source\\repos\\prj133\\prj133\\prj133.csproj",
-        "packagesPath": "C:\\Users\\Om\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Om\\source\\repos\\prj133\\prj133\\obj\\",
+        "projectPath": "C:\\Users\\vynkt\\source\\repos\\prj133\\prj133\\prj133.csproj",
+        "packagesPath": "C:\\Users\\vynkt\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vynkt\\source\\repos\\prj133\\prj133\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Om\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vynkt\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
